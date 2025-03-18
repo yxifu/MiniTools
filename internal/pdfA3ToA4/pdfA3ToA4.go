@@ -1,4 +1,4 @@
-package pdf
+package pdfA3ToA4
 
 import (
 	"fmt"
