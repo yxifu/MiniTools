@@ -1,7 +1,7 @@
 package main
 
 import (
-	"MiniTools/pdf"
+	pdf "MiniTools/internal/pdfA3ToA4"
 	"fmt"
 	"log"
 	"os"
