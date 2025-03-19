@@ -43,14 +43,14 @@ func Merge(firstFilePath, mergeOutputDir string) bool {
 		fmt.Printf("filePath:%s is not a regular file", firstFilePath)
 		return false
 	}
-	if len(firstFilePath) < 4 || firstFilePath[len(firstFilePath)-4:] != ".s001" {
+	if len(firstFilePath) < 5 || firstFilePath[len(firstFilePath)-5:] != ".s001" {
 		fmt.Printf("The file must be the first file(*.s001), got: %s\n", firstFilePath)
 		return false
 	}
 	outputFile := ""
 	if mergeOutputDir == "" {
 		outputFile = removeSuffix(firstFilePath, ".s001")
-	} else if CheckFileExist(mergeOutputDir) {
+	} else if !CheckFileExist(mergeOutputDir) {
 		fmt.Println("目录不存在：" + outputFile)
 		return false
 	} else {
@@ -58,7 +58,7 @@ func Merge(firstFilePath, mergeOutputDir string) bool {
 		fn = removeSuffix(fn, ".s001")
 		outputFile = filepath.Join(mergeOutputDir, fn)
 	}
-	//mergeFile(filePath, outputFile)
+	mergeFile(firstFilePath, outputFile)
 	return true
 
 }
@@ -190,12 +190,12 @@ func SplitFile(inputFilePath string, chunkSize int64, outputDir string) error {
 
 func mergeFile(firstFilePath, outputFile string) error {
 	//outputFile := removeSuffix(firstFilePath, ".s001")
-	fmt.Printf("outputFile: %v\n", outputFile)
-
-	if !isEndWithS001(firstFilePath) {
-		fmt.Println("The file must be the first file(*.s001)")
-		return nil
-	}
+	// fmt.Printf("outputFile: %v\n", outputFile)
+	// fmt.Printf("firstFilePath: %v\n", firstFilePath)
+	// if !isEndWithS001(firstFilePath) {
+	// 	fmt.Println("The file must be the first file(*.s001)")
+	// 	return nil
+	// }
 	fmt.Println("outputFile:", outputFile)
 	if CheckFileExist(outputFile) {
 		fmt.Println("文件已经存在！" + outputFile)
