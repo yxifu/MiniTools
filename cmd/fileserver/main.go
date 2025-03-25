@@ -27,7 +27,7 @@ var dir string
 var pathPrefix string
 
 func init() {
-	rootCmd.Flags().IntVarP(&port, "port", "p", 8080, "服务端口")
+	rootCmd.Flags().IntVarP(&port, "port", "p", 8880, "服务端口")
 	rootCmd.Flags().StringVarP(&dir, "dir", "d", ".", "目录")
 	rootCmd.Flags().StringVarP(&pathPrefix, "path", "", "/", "路径前缀")
 }
