@@ -70,7 +70,7 @@ func ExecuteCut(inputPath, outputPath string) {
 		outputPdfName = convertToA4FileName(outputPdfName)
 	}
 
-	if isDirExists(outputDir) {
+	if !isDirExists(outputDir) {
 		if crateOutputDir {
 			createDirIfNotExists(outputDir)
 		} else {
